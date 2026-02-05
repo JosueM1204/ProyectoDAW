@@ -1,0 +1,284 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#ffffff;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start; /* 👈 clave */
+    min-height:100vh;
+    padding:30px 0;
+}
+
+/* VENTANA */
+.window{
+    width:950px;
+    max-width:95%;
+    background:#1e3550;
+    border-radius:18px;
+    padding:25px 30px;
+    color:#fff;
+
+    box-shadow:
+        0 0 0 3px #e0b453,
+        0 18px 40px rgba(0,0,0,0.35);
+}
+
+/* TITULOS */
+h2{
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+h4{
+    font-size:14px;
+    font-weight:600;
+    margin:18px 0 10px;
+}
+
+/* LINEAS */
+hr{
+    border:none;
+    border-top:1px solid rgba(255,255,255,0.22);
+    background:#ffffff;
+    margin:14px 0;
+}
+
+/* GRID DE CAMPOS */
+.row{
+    display:flex;
+    gap:22px;
+    align-items:flex-end;
+    margin-bottom:12px;
+}
+
+.field{
+    flex:1;
+}
+
+.field > label{
+    display:block;
+    font-size:12px;
+    font-weight:500;
+    color:#e5e7eb;
+    margin-bottom:6px;
+}
+
+.field.estado{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.field.estado > label{
+    margin:0;
+    font-size:13px;
+    font-weight:600;
+    color:#e5e7eb;
+    white-space:nowrap;
+}
+
+/* Grupo de checkboxes */
+.estado-group{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex-wrap:nowrap;
+}
+
+
+/* INPUTS */
+input, select{
+    width:100%;
+    height:34px;                 
+    padding:6px 10px;
+    border:none;
+    border-radius:6px;
+    outline:none;
+    background:#ffffff;
+    color:#111827;
+    font-size:13px;
+}
+
+/* BOTON BUSCAR */
+.btn-search{
+    background:#d4af5a;
+    border:none;
+    padding:7px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:500;
+    margin-bottom:10px;
+}
+
+/* ESTADO */
+.estado-group input[type="checkbox"]{
+    appearance:none;
+    -webkit-appearance:none;
+
+    width:16px;
+    height:16px;
+    border-radius:4px;
+
+    border:2px solid #e5e7eb;
+    background:transparent;
+
+    cursor:pointer;
+    position:relative;
+}
+
+.estado-group{
+    display:flex;
+    flex-direction: row;   
+    align-items:center;
+    gap:18px;
+    margin-top:6px;
+    flex-wrap: nowrap;     
+    white-space: nowrap;   
+}
+
+.estado-group label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    font-weight:500;
+    color:#ffffff;
+    cursor:pointer;
+}
+
+.estado-group input[type="checkbox"]:checked{
+    background:#ffffff;
+    border-color:#ffffff;
+}
+
+.estado-group input[type="checkbox"]:checked::after{
+    content:"";
+    position:absolute;
+
+    width:4px;
+    height:8px;
+
+    border:solid #1e3550;
+    border-width:0 2px 2px 0;
+
+    top:1px;
+    left:4px;
+
+    transform:rotate(45deg);
+}
+
+
+
+/* SECCION SERVICIOS */
+.services{
+    display:flex;
+    gap:24px;
+    align-items:stretch;
+    margin-top:6px;
+}
+
+/* TABLA */
+.table-box{
+    flex:2;
+    background:#e5e7eb;
+    border-radius:10px;
+    padding:10px;
+    overflow:hidden;
+}
+
+.table-box table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+    color:#111827;
+}
+
+.table-box thead th{
+    text-align:left;
+    padding:10px 10px;
+    font-weight:600;
+    background:#f3f4f6;
+    border-bottom:1px solid rgba(0,0,0,0.08);
+}
+
+.table-box tbody td{
+    padding:10px 10px;
+    border-bottom:1px solid rgba(0,0,0,0.08);
+}
+
+.table-box tbody tr:last-child td{
+    border-bottom:none;
+}
+
+/* COSTOS (derecha) */
+.cost-box{
+    flex:1;
+}
+
+.cost-box label{
+    display:block;
+    font-size:12px;
+    font-weight:600;
+    color:#e5e7eb;
+    margin:10px 0 6px;
+}
+
+.cost-box label:last-of-type{
+    margin-top:12px;
+}
+
+/* BOTONES GUARDAR/CANCELAR */
+.panel-btn{
+    margin-top:14px;
+    display:flex;
+    gap:14px;
+}
+
+
+.panel-btn .btn{
+    flex:1;                 
+    height:44px;
+    border:none;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.panel-btn .btn.cancel{
+    background:#d7c8a6;
+    color:#111827;
+}
+
+.panel-btn .btn.save{
+    background:#e0b453;
+    color:#111827;
+}
+
+/* EFECTO PARA BOTONES */
+.btn,
+.btn-search,
+.btn-add {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Al pasar el cursor */
+.btn:hover,
+.btn-search:hover,
+.btn-add:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Al hacer clic (sensación de presión) */
+.btn:active,
+.btn-search:active,
+.btn-add:active {
+    transform: scale(0.97);
+}
