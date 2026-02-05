@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Factura - Vida Animal</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/CSS/styleCrear.css">
+</head>
+
+<body>
+
+<form method="POST">
+
+    <div class="window">
+
+        <h2>Nueva Factura</h2>
+        <hr>
+
+        <!-- Datos principales -->
+        <div class="row">
+            <div class="field">
+                <label>N° Factura</label>
+                <input name="numero_factura" placeholder="FAC-01">
+            </div>
+
+            <div class="field">
+                <label>Fecha de Emisión</label>
+                <input type="date" name="fecha_emision">
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Datos Cliente -->
+        <h4>Datos Cliente</h4>
+
+        <div class="row row-buttons">
+            <button type="button" class="btn-search">
+                Buscar Cliente
+            </button>
+
+            <button type="button" class="btn-edit-client">
+                Editar
+            </button>
+        </div>
+
+        <div class="row">
+            <div class="field">
+                <label>Nombre</label>
+                <input name="cliente_nombre">
+            </div>
+
+            <div class="field">
+                <label>Cédula</label>
+                <input name="cliente_cedula">
+            </div>
+
+            <div class="field">
+                <label>Teléfono</label>
+                <input name="cliente_telefono">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="field">
+                <label>Email</label>
+                <input type="email" name="cliente_email">
+            </div>
+
+            <div class="field">
+                <label>Dirección</label>
+                <input name="cliente_direccion">
+            </div>
+
+            <div class="field">
+                <label>Forma de Pago</label>
+                <select name="forma_pago">
+                    <option value="" selected disabled>Seleccione una forma de pago</option>
+                    <option value="Efectivo">Efectivo</option>
+                    <option  value="Transferencia">Transferencia</option>
+                    <option value="Tarjeta">Tarjeta</option>
+                </select>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Datos Mascota -->
+        <h4>Datos de la Mascota</h4>
+
+        <div class="row">
+            <div class="field">
+                <label>Mascotas Asociadas</label>
+                <select name="mascota">
+                    <option value="" selected disabled>Seleccione una mascota</option>
+                    <option value="Firulais">Firulais</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Tipo de Trámite</label>
+                <select name="tipo_tramite">
+                    <option value="" selected disabled>Seleccione un trámite</option>
+                    <option value="Consulta">Consulta</option>
+                    <option value="Vacunación">Vacunación</option>
+                    <option value="Cirugía">Cirugía</option>
+                </select>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Servicios -->
+        <h4>Detalle de Servicios Prestados</h4>
+
+        <div class="services">
+
+            <div class="table-box">
+                <button type="button" class="btn-add" onclick="togglePanel()">+</button>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Servicio</th>
+                            <th>Precio</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tablaServicios">
+                        <tr>
+                            <td>Consulta veterinaria</td>
+                            <td>$15.00</td>
+                            <td>$15.00</td>
+                        </tr>
+                        <tr>
+                            <td>Vacunación</td>
+                            <td>$10.00</td>
+                            <td>$10.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cost-box">
+                <label>Servicios adicionales</label>
+                <input name="servicios_adicionales">
+
+                <label>Subtotal</label>
+                <input name="subtotal">
+
+                <label>IVA (15%)</label>
+                <input name="iva">
+
+                <label>TOTAL A PAGAR</label>
+                <input name="total">
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- Botones finales -->
+        <div class="panel-btn">
+            <button type="button" class="btn cancel">Cancelar</button>
+            <button type="submit" class="btn save">Guardar</button>
+        </div>
+
+    </div>
+
+</form>
+
+                <!-- Panel lateral -->
+        <div class="panel" id="panel">
+
+            <button class="cerrar" onclick="togglePanel()">✖</button>
+
+        <h4>Servicios Adicionales</h4>
+
+        <label>Servicio</label>
+        <input id="servicio">
+
+        <label>Precio Unitario</label>
+        <input id="precio" type="number" step="0.01" inputmode="decimal" placeholder="0.00">
+
+        <label>Subtotal</label>
+        <input id="subtotalServicio" type="number" step="0.01" inputmode="decimal" placeholder="0.00">
+
+        <button type="button" class="btn save" onclick="agregarServicio()">
+        Guardar Servicio
+        </button>
+
+        </div>
+
+</body>
+</html>
+<script>
+    function togglePanel() {
+        document.getElementById("panel").classList.toggle("active");
+    }
+
+    function agregarServicio() {
+        let nombre = document.getElementById("servicio").value;
+        let precio = parseFloat(document.getElementById("precio").value);
+
+        if (!nombre || !precio) return;
+
+        let tabla = document.getElementById("tablaServicios");
+
+        tabla.innerHTML += `
+            <tr>
+                <td>${nombre}</td>
+                <td>$${precio.toFixed(2)}</td>
+                <td>$${precio.toFixed(2)}</td>
+            </tr>
+        `;
+
+        togglePanel();
+    }
+</script>
+

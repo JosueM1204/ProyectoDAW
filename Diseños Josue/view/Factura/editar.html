@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Factura - Vida Animal</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/CSS/styleEditar.css">
+</head>
+
+<body>
+
+    <form method="POST">
+        <div class="window">
+
+            <h2>Editar Factura</h2>
+            <hr>
+
+            <div class="row">
+                <div class="field">
+                    <label>N° Factura</label>
+                    <input name="numero_factura" placeholder="FAC-01">
+                </div>
+
+                <div class="field">
+                    <label>Fecha de Emisión</label>
+                    <input type="date" name="fecha_emision">
+                </div>
+
+                <div class="field estado">
+                    <label>Estado:</label>
+
+                    <div class="estado-group">
+                        <label>
+                            <input type="checkbox" name="estado_pagada">
+                            Pagada
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="estado_pendiente" checked>
+                            Pendiente
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr>
+            <h4>Datos Cliente</h4>
+
+            <button type="button" class="btn-search">Buscar Cliente</button>
+
+            <div class="row">
+                <div class="field">
+                    <label>Nombre</label>
+                    <input name="cliente_nombre">
+                </div>
+
+                <div class="field">
+                    <label>Cédula</label>
+                    <input name="cliente_cedula">
+                </div>
+
+                <div class="field">
+                    <label>Teléfono</label>
+                    <input name="cliente_telefono">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label>Email</label>
+                    <input name="cliente_email">
+                </div>
+
+                <div class="field">
+                    <label>Dirección</label>
+                    <input name="cliente_direccion">
+                </div>
+
+                <div class="field">
+                    <label>Forma de Pago</label>
+                    <select name="forma_pago">
+                        <option selected disabled value="">Seleccione una forma de pago</option>
+                        <option>Efectivo</option>
+                        <option >Transferencia</option>
+                        <option>Tarjeta</option>
+                    </select>
+                </div>
+            </div>
+
+            <hr>
+            <h4>Detalle de Servicios Prestados</h4>
+
+            <div class="services">
+                <div class="table-box">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Servicio</th>
+                                <th>Precio</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Consulta veterinaria</td>
+                                <td>$15.00</td>
+                                <td>$15.00</td>
+                            </tr>
+                            <tr>
+                                <td>Vacunación</td>
+                                <td>$10.00</td>
+                                <td>$10.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="cost-box">
+                    <label>Subtotal</label>
+                    <input name="subtotal"
+
+                    <label>IVA (15%)</label>
+                    <input name="iva">
+
+                    <label>TOTAL A PAGAR</label>
+                    <input name="total">
+                </div>
+            </div>
+
+                <hr>
+
+                <div class="panel-btn">
+                    <button type="button" class="btn cancel">Cancelar</button>
+                    <button type="submit" class="btn save">Guardar</button>
+                </div> 
+        </div>
+                
+
+    </form>
+
+</body>
+</html>
